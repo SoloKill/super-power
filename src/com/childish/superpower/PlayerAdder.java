@@ -11,46 +11,46 @@ import java.util.Scanner;
  */
 public class PlayerAdder {
     public static void main(String[] args) {
-
-        System.out.println("Enter a command:");
         Scanner scanner = new Scanner(System.in);
-        String command = scanner.next();
-        System.out.println();
 
-
-        if(command.equalsIgnoreCase("add")) {
-            //get player info from user
-            System.out.println("Enter player name:");
-            String playerName = scanner.next();
+        while(true) {
+            System.out.println("Enter a command:");
+            String command = scanner.nextLine();
             System.out.println();
-            System.out.println("Enter player tag:");
-            String playerTag = scanner.next();
-
-            //add user to db
-            tryLoadEnhancer();
-            Player player = new Player(playerTag, playerName);
-            player.save();
 
 
-        } else if(command.equalsIgnoreCase("find")) {
-            //in future have specify between match and player, if player specified have specify between tag and name
-            System.out.println("Enter player name (CASE SENSITIVE!):" );
-            String playerName = scanner.next();
-            Player foundPlayer = Player.finder.query().where().eq("player_name", playerName).findUnique();
-            System.out.println(foundPlayer);
+            if (command.equalsIgnoreCase("add")) {
+                //get player info from user
+                System.out.println("Enter player name:");
+                String playerName = scanner.nextLine().toUpperCase();
+                System.out.println();
+                System.out.println("Enter player tag:");
+                String playerTag = scanner.nextLine().toUpperCase();
 
+                //add user to db
+                tryLoadEnhancer();
+                Player player = new Player(playerTag, playerName);
+                player.save();
+
+
+            } else if (command.equalsIgnoreCase("find")) {
+                //in future have specify between match and player, if player specified have specify between tag and name
+                System.out.println("Enter player name:");
+                String playerName = scanner.nextLine().toUpperCase();
+                Player foundPlayer = Player.finder.query().where().eq("player_name", playerName).findUnique();
+                System.out.println(foundPlayer);
+
+            } else {
+                System.out.println("Command not recognized. Input command.");
+            }
         }
 
-        else {
-            System.out.println("Command not recognized. Input command.");
-        }
-
-        tryLoadEnhancer();
+        /*tryLoadEnhancer();
         Player player = new Player();
         player.save();
         Query query = Player.finder.query();
         Player playerFromDB = (Player)query.where().eq("id",1).findUnique();
-        System.out.println(playerFromDB.getPlayerName());
+        System.out.println(playerFromDB.getPlayerName());*/
     }
 
     public static void tryLoadEnhancer() {
