@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.avaje:avaje-classpath-scanner:2.2.2">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.avaje/avaje-classpath-scanner/2.2.2/e8cc1a196b3de19a573d64ed5000e23db57d5074/avaje-classpath-scanner-2.2.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.avaje/avaje-classpath-scanner/2.2.2/a60e19400a60cb284f4054e90a86659f39870dd0/avaje-classpath-scanner-2.2.2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

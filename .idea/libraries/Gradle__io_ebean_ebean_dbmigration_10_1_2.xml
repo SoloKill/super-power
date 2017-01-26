@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: io.ebean:ebean-dbmigration:10.1.2">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.ebean/ebean-dbmigration/10.1.2/1de9ab4c3ba52f48225018cf0e2ab56737e2017a/ebean-dbmigration-10.1.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.ebean/ebean-dbmigration/10.1.2/aa21934607ae754e30ab7d30b6e0d0ab4353cbae/ebean-dbmigration-10.1.2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
