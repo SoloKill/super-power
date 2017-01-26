@@ -27,11 +27,15 @@ public class PlayerAdder {
                 System.out.println("Enter player tag:");
                 String playerTag = scanner.nextLine().toUpperCase();
 
-                //add user to db
-                tryLoadEnhancer();
-                Player player = new Player(playerTag, playerName);
-                player.save();
-
+                //check whether player/tag already exist within database
+                if(Player.finder.query().where().eq("player_name", playerName).findUnique() == null || Player.finder.query().where().eq("player_tag", playerTag).findUnique() == null) {
+                    System.out.println("Player already exists!");
+                } else {
+                    //add user to db
+                    tryLoadEnhancer();
+                    Player player = new Player(playerTag, playerName);
+                    player.save();
+                }
 
             } else if (command.equalsIgnoreCase("find")) {
                 //in future have specify between match and player, if player specified have specify between tag and name
