@@ -34,7 +34,10 @@ public class PlayerAdder {
 
         } else if(command.equalsIgnoreCase("find")) {
             //in future have specify between match and player, if player specified have specify between tag and name
-            System.out.println("Enter player name:" );
+            System.out.println("Enter player name (CASE SENSITIVE!):" );
+            String playerName = scanner.next();
+            Player foundPlayer = Player.finder.query().where().eq("player_name", playerName).findUnique();
+            System.out.println(foundPlayer);
 
         }
 
