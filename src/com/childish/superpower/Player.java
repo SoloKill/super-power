@@ -23,7 +23,6 @@ public class Player extends Model implements EnhancedTransactional{
     @Id
     Long id;
 
-
     public Player(String tag, String realName) {
         playerName = realName;
         playerTag = tag;
@@ -40,7 +39,7 @@ public class Player extends Model implements EnhancedTransactional{
     }
 
     public String toString() {
-        return "Name: " + playerName + " Tag: " + playerTag + "Aliases: " + aliases;
+        return "Name: " + playerName + " Tag: " + playerTag + " Aliases: " + aliases;
     }
 
     public boolean equals(Player toCompare) {
