@@ -4,11 +4,44 @@ import com.ea.agentloader.AgentLoader;
 import io.ebean.Ebean;
 import io.ebean.Query;
 
+import java.util.Scanner;
+
 /**
  * Created by SONATA on 1/19/2017.
  */
 public class PlayerAdder {
     public static void main(String[] args) {
+
+        System.out.println("Enter a command:");
+        Scanner scanner = new Scanner(System.in);
+        String command = scanner.next();
+        System.out.println();
+
+
+        if(command.equalsIgnoreCase("add")) {
+            //get player info from user
+            System.out.println("Enter player name:");
+            String playerName = scanner.next();
+            System.out.println();
+            System.out.println("Enter player tag:");
+            String playerTag = scanner.next();
+
+            //add user to db
+            tryLoadEnhancer();
+            Player player = new Player(playerTag, playerName);
+            player.save();
+
+
+        } else if(command.equalsIgnoreCase("find")) {
+            //in future have specify between match and player, if player specified have specify between tag and name
+            System.out.println("Enter player name:" );
+
+        }
+
+        else {
+            System.out.println("Command not recognized. Input command.");
+        }
+
         tryLoadEnhancer();
         Player player = new Player();
         player.save();
