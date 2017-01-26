@@ -38,11 +38,27 @@ public class PlayerAdder {
                 }
 
             } else if (command.equalsIgnoreCase("find")) {
+                Player foundPlayer = null;
                 //in future have specify between match and player, if player specified have specify between tag and name
-                System.out.println("Enter player name:");
-                String playerName = scanner.nextLine().toUpperCase();
-                Player foundPlayer = Player.finder.query().where().eq("player_name", playerName).findUnique();
-                System.out.println(foundPlayer);
+                System.out.println("Do you want to search by name or by tag? :");
+                //determine whether user wants to find by name or by playertag
+                if(scanner.nextLine().toUpperCase().equals("NAME")) {
+                    System.out.println("Enter player name:");
+                    String playerName = scanner.nextLine().toUpperCase();
+                    System.out.println();
+                    foundPlayer = Player.finder.query().where().eq("player_name", playerName).findUnique();
+                } else if(scanner.nextLine().toUpperCase().equals("TAG")) {
+                    System.out.println("Enter player tag:");
+                    String playerTag = scanner.nextLine().toUpperCase();
+                    System.out.println();
+                    foundPlayer = Player.finder.query().where().eq("player_tag", playerTag).findUnique();
+                }
+                //make sure a player was found
+                if(foundPlayer == null) {
+                    System.out.println("Player not found.");
+                } else {
+                    System.out.println(foundPlayer);
+                }
 
             } else {
                 System.out.println("Command not recognized. Input command.");
